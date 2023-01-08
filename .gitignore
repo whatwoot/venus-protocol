@@ -51,3 +51,5 @@ cache
 # Build
 dist
 docgen-docs
+
+.history
