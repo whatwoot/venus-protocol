@@ -248,6 +248,13 @@ async function main() {
     console.log("vToken: %s borrow: %s",vAddress, (await vBepToken.borrowBalanceStored(lenderAddress)).toString())
   }
 
+  console.log("vBNB supply/borrow for morpho test...")
+  tx = await vBNB.connect(admin).mint({value:utils.parseEther("0.9")});
+  await tx.wait();
+
+  tx = await vBNB.connect(lender).borrow(utils.parseEther("0.3"));
+  await tx.wait();
+
   console.log("Lending pool init success...");
 }
 
